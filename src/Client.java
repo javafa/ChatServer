@@ -22,10 +22,9 @@ public class Client {
 			public void run(){
 				Scanner scanner = new Scanner(System.in); // 키보드 입력 생성
 				try {
-					
+					OutputStream os = socket.getOutputStream();
 					while(true){
 						String word = scanner.nextLine(); // 입력을 대기하고 있다가 enter 키가 입력되면
-						OutputStream os = socket.getOutputStream();
 						os.write(word.getBytes()); // stream을 통해 서버측으로 전달한다.
 					}
 				} catch (IOException e) {

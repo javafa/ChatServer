@@ -23,11 +23,13 @@ public class Server {
 	// 2. 서버동작
 	public void process(){
 		// 여기서 소켓을 열고 대기
+		System.out.println("Server is running...");
 		while(true){
 			// 3. 서브 thread 에서 소켓을 열고 대기
 			Socket socket;
 			try {
 				socket = serverSocket.accept(); // <- 여기서 프로그램이 멈춘다
+				System.out.println(socket.getInetAddress()+" : Connected");
 				subProcess(socket); // 서브 thread 에서 소켓을 처리하는 함수로 넘겨준다
 			} catch (IOException e) {
 				e.printStackTrace();

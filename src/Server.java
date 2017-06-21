@@ -40,11 +40,12 @@ public class Server {
 	private void subProcess(Socket socket){
 		new Thread(){
 			public void run(){
-				InputStream os;
 				try {
-					os = socket.getInputStream();
+					InputStream os = socket.getInputStream();
+					System.out.println("opened stream");
 					// 스트림을 열고 데이터 통신을 준비
 					BufferedReader br = new BufferedReader(new InputStreamReader(os));
+					System.out.println("opened buffered");
 					// 줄단위로 데이터를 받아서 화면에 출력
 					while(true){
 						String message= br.readLine();
